@@ -43,7 +43,7 @@ export class AuthenticationService {
           this.success = localStorage.getItem('id_token')
           this.isAuthenticated = true;
           this.router.navigate(['/dashboard']);
-          window.location.reload();
+          // window.location.reload();
         }, err => {
           this.erreur = err.error.message
           this.emitErrorSubject()

@@ -38,7 +38,7 @@ var AuthenticationService = /** @class */ (function () {
             _this.success = localStorage.getItem('id_token');
             _this.isAuthenticated = true;
             _this.router.navigate(['/dashboard']);
-            window.location.reload();
+            // window.location.reload();
         }, function (err) {
             _this.erreur = err.error.message;
             _this.emitErrorSubject();
