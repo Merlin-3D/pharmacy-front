@@ -1,0 +1,38 @@
+<div class="container-fluid page">
+    <div class="d-flex page__box p-3 mt-2"> Liste des ventes</div>
+    <div class="page__content shadow p-3 position-relative">
+        <div class="card">
+            <div class="card-header">
+                <h5>
+                    Liste des médicaments vendus
+                </h5>
+            </div>
+
+            <div class="card-body  mt-3">
+                <table  *ngIf="vente.content.length"  class="table table-bordered table-striped "  datatable [dtOptions]="dtOptions" > 
+                    <thead>
+                        <tr>
+                            <th>Libellé</th>
+                            <th>Code approv</th>
+                            <th>Prix d'achat unitaire</th>
+                            <th>Stock initial</th>
+                            <th>Qte vendue</th>
+                            <th>Date de la vente</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let data of vente.content">
+                            <td>{{ data.medicamment.libelle }}</td>
+                            <td><span class="badge bg-primary">{{ data.approvisionnement.code }}</span></td>
+                            <td>{{ data.approvisionnement.p_achat_unit }} FCFA</td>
+                            <td>{{ data.qte_stock_init }}</td>
+                            <td><span class="badge bg-success">{{ data.qte_sortie }}</span></td>
+                            <td>{{ data.createdAt | date: 'dd/MM/yyyy'  }}</td>    
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>

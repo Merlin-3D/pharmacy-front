@@ -1,0 +1,94 @@
+<div class="container-fluid page">
+  <div class="d-flex page__box p-3 mt-2">Tableau de bord</div>
+  <div class="page__content shadow p-3 position-relative">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-xl-3">
+          <div class="card bg-c-blue order-card">
+            <div class="card-block">
+              <h6 class="m-b-20">Catégories Enregistrés</h6>
+              <h2 class="text-right">
+                <mat-icon style="margin-right: 150px;">view_module</mat-icon> <span>{{ result.content.cat>0 ?
+                  result.content.cat :0 }}</span>
+              </h2>
+              <h6 class="m-b-0">Completed Orders<span class="f-right">{{ result.content.cat>0 ? result.content.cat :0
+                  }}</span></h6>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-xl-3">
+          <div class="card bg-c-green order-card">
+            <div class="card-block">
+              <h6 class="m-b-20">Médicaments Enregistrés</h6>
+              <h2 class="text-right">
+                <mat-icon style="margin-right: 150px;">local_pharmacy</mat-icon> <span>{{ result.content.medic>0 ?
+                  result.content.medic :0 }}</span>
+              </h2>
+              <h6 class="m-b-0">Completed Orders<span class="f-right">{{ result.content.medic>0 ? result.content.medic
+                  :0 }}</span></h6>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-xl-3">
+          <div class="card bg-c-yellow order-card">
+            <div class="card-block">
+              <h6 class="m-b-20">Approvisionnement</h6>
+              <h2 class="text-right">
+                <mat-icon style="margin-right: 150px;">shopping_basket</mat-icon> <span>{{ result.content.app>0 ?
+                  result.content.app :0 }}</span>
+              </h2>
+              <h6 class="m-b-0">Completed Orders<span class="f-right">{{ result.content.app>0 ? result.content.app :0
+                  }}</span></h6>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-xl-3">
+          <div class="card bg-c-pink order-card">
+            <div class="card-block">
+              <h6 class="m-b-20">Ventes</h6>
+              <h2 class="text-right">
+                <mat-icon style="margin-right: 150px;">shopping_cart</mat-icon> <span>{{ result.content.vente>0 ?
+                  result.content.vente :0 }}</span>
+              </h2>
+              <h6 class="m-b-0">Completed Orders<span class="f-right">{{ result.content.vente>0 ? result.content.vente
+                  :0 }}</span></h6>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 col-xl-3">
+          <div class="card bg-c-blue order-card">
+            <div class="card-block">
+              <h6 class="m-b-20">Rupture</h6>
+              <h2 class="text-right">
+                <mat-icon style="margin-right: 150px;">remove_shopping_cart</mat-icon> <span>{{ apiService.count_rup>0 ?
+                  apiService.count_rup :0 }}</span>
+              </h2>
+              <h6 class="m-b-0">Completed Orders<span class="f-right">{{ apiService.count_rup>0 ? apiService.count_rup
+                  :0 }}</span></h6>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-xl-3">
+          <div class="card bg-c-yellow order-card">
+            <div class="card-block">
+              <h6 class="m-b-20">Expiration</h6>
+              <h2 class="text-right">
+                <mat-icon style="margin-right: 150px;">watch_later</mat-icon> <span>{{ apiService.count_exp>0 ?
+                  apiService.count_exp :0 }}</span>
+              </h2>
+              <h6 class="m-b-0">Completed Orders<span class="f-right">{{ apiService.count_exp>0 ? apiService.count_exp
+                  :0 }}</span></h6>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>

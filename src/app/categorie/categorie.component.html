@@ -1,0 +1,40 @@
+<div class="container-fluid page">
+    <div class="d-flex page__box p-3 mt-2">Gestion des catégories.</div>
+    <div class="page__content shadow p-3 position-relative">
+        <section class="section">
+            <div class="card">
+                <div class="card-header">
+                        <button type="button" class="btn btn-lg btn-primary"
+                        (click)="openAdd()">
+                        <i class="fas fa-plus"></i> Ajouter une catégorie
+                    </button>
+                </div>
+
+                <div class="card-body  mt-3">
+                    <table *ngIf="categories.content.length"  class="table table-bordered table-striped table-hover"  datatable [dtOptions]="dtOptions">
+                        <thead>
+                            <tr>
+                                <th>Identifients</th>
+                                <th>Titre</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let data of categories.content">
+                                
+                                <td>{{ data._id }}</td>
+                                <td>{{ data.titre }}</td>
+                                <td>
+                                    <button class="btn btn-lg btn-info text-white" (click)="open( data._id , data.titre )"><i class="far fa-edit"></i> Modifier</button>
+                                </td>
+                            
+                        </tr>
+                        </tbody>
+                    </table>
+                    
+                </div>
+            </div>
+   
+        </section>
+    </div>
+  </div>

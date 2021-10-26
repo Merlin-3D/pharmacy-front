@@ -1,0 +1,37 @@
+<div class="container-fluid page">
+    <div class="d-flex page__box p-3 mt-2">Médicaments expirés</div>
+    <div class="page__content shadow p-3 position-relative">
+        <div class="alert alert-danger  mt-3" *ngIf="expiration.message">
+            <h4 class="alert-heading"><mat-icon>info</mat-icon> Danger</h4>
+            <p>Certain de vos médicament ont déja atteint leur date d'expiration veillez revoir votre stock.</p>
+        </div>
+        <table *ngIf="expiration.content.length" datatable [dtOptions]="dtOptions"   class="table table-bordered table-striped ">
+            <thead>
+                <tr>
+                    <th>Libellé</th>
+                    <th>Code approv</th>
+                    <th>Qte comd</th>
+                    <th>Qte en stock</th>
+                    <th>Date expiration</th>
+                    <th>Date du jour</th>
+                    <th>Prix d'achat unitaire</th>
+                    <th>Date d'approv</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let data of expiration.content">
+                    <td>{{ data.medicamment.libelle }}</td>
+                    <td><span class="badge bg-primary">{{ data.code }}</span></td>
+                    <td>{{ data.qte_comd }}</td>
+                    <td>{{ data.qte_stock }}</td>
+                    <td><span class="badge bg-danger">{{ data.date_exp  | date: 'dd/MM/yyyy'  }}</span></td>
+                    <td><span class="badge bg-warning">{{ date }}</span></td>  
+                    <td>{{ data.p_achat_unit }} FCFA</td>
+                    <td>{{ data.date_approv | date: 'dd/MM/yyyy'  }}</td>  
+              
+            </tr>
+            </tbody>
+        </table>
+    </div>
+  </div>
+  

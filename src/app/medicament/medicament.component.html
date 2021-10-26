@@ -1,0 +1,51 @@
+<div class="container-fluid page">
+    <div class="d-flex page__box p-3 mt-2">Gestion des médicaments.</div>
+    <div class="page__content shadow p-3 position-relative">
+        <div class="card">
+            <div class="card-header">
+                    <button type="button" class="btn btn-lg btn-primary"
+                    (click)="open()">
+                    <i class="fas fa-plus"></i>  Ajouter un médicament
+                </button>
+            </div>
+ 
+            <div class="card-body  mt-3">
+             
+                <table *ngIf="medicaments.content.length"  class="table table-bordered table-striped "  datatable [dtOptions]="dtOptions">
+                    <thead>
+                        <tr>
+                            <th>Libellé</th>
+                            <th>Qté réel</th>
+                            <th>Ecart</th>
+                            <th>Prix unit</th>
+                            <th>Prix d'achat unit</th>
+                            <th>Catégories</th>
+                            <th>Date de création</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let data of medicaments.content">
+                            
+                            <td>{{ data.libelle }}</td>
+                            <td>{{ data.qte_reel }}</td>
+                            <td>{{ data.ecart }}</td>
+                            <td>{{ data.p_unit }}</td>
+                            <td>{{ data.p_achat_unit }}</td>
+                            <td>{{ data.categorie.titre }}</td>
+                            
+                            <td>{{ data.createdAt | date: 'dd/MM/yyyy'  }}</td>
+                            <td>
+                                <a routerLink="/new_approvisionnement/{{ data._id }}" class="btn  btn-success" data-toggle="tooltip" data-placement="top" title="Approvisionner"> <i class="fas fa-cart-arrow-down"></i> </a>
+                                <button class="btn  btn-info m-2" (click)="modifier(data)" data-toggle="tooltip" data-placement="top" title="Modifier"><i class="far fa-edit"></i> </button>
+                                <button class="btn  btn-danger" (click)="delete(data.libelle,data._id)" data-toggle="tooltip" data-placement="top" title="Supprimer"><i class="far fa-trash-alt"></i></button>
+                            </td>
+                        
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+  </div>
+  

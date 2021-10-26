@@ -1,0 +1,51 @@
+<div class="container-fluid page">
+    <div class="d-flex page__box p-3 mt-2">Liste compléte des médicaments approvisionné.</div>
+    <div class="page__content shadow p-3 position-relative">
+        <div class="card">
+            <div class="card-header">
+                    <h5>
+                        Liste des approvisionnements
+                    </h5>
+            </div>
+    
+            <div class="card-body  mt-3"> 
+                <!-- <div class="alert alert-success" *ngIf="messageSuccess">Approvisionnement supprimer avec succès</div> -->
+    
+                <table *ngIf="approvisionnemnt.content.length"  class="table table-bordered table-striped "  datatable [dtOptions]="dtOptions">
+                    <thead>
+                        <tr>
+                            <th>Par.</th>
+                            <th>Libellé</th>
+                            <th>Qté commander</th>
+                            <th>Qté en stock</th>
+                            <th>Stock sécu</th>
+                            <th>Date expiration</th>
+                            <th>Prix achat unit</th>
+                            <th>Prix total achat</th>
+                            <th>Date approv</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let data of approvisionnemnt.content">
+                            <td>{{ data.user.nom }}</td>
+                            <td>{{ data.medicamment.libelle }}</td>
+                            <td><span class="badge bg-warning">{{ data.qte_comd }}</span></td>
+                            <td>{{ data.qte_stock }}</td>
+                            <td>{{ data.stock_securite }}</td>
+                            <td><span class="badge bg-success">{{  data.date_exp | date: 'dd/MM/yyyy'  }}</span></td>
+                            <td>{{ data.p_achat_unit }} FCFA</td>
+                            <td>{{ data.p_total_achat }} FCFA</td>
+                            <td>{{  data.date_approv | date: 'dd/MM/yyyy'  }} </td>
+                            <td>
+                                <button class="btn  btn-danger m-2" data-toggle="tooltip" data-placement="top" title="Supprimer" (click)="open('focusFirst', data._id)"><i class="far fa-trash-alt"></i> </button>
+                            </td>
+                        
+                    </tr>
+                    </tbody>
+                </table>
+            </div> 
+        </div>
+    </div>
+  </div>
+  

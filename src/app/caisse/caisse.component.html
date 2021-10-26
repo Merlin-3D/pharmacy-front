@@ -1,0 +1,70 @@
+<div class="container-fluid page">
+    <div class="d-flex page__box p-3 mt-2">Etat des Caisses</div>
+    <div class="page__content shadow p-3 position-relative">
+        <section class="section">
+            <div class="card">
+                <div class="card-header">
+                    <form (ngSubmit)="findSubmit(findInForm)" #findInForm="ngForm" class="form-inline">
+                        <div class="row container">
+                            <div class="col-lg-1 mt-2">
+                                <label for="inputPassword6"> <strong>Du</strong> </label>
+                            </div>
+                            <div class="col-lg-4">
+                                <input type="date" style="height: 100%;" class="form-control mx-sm-3" name="startDate" ngModel>
+                            </div>
+                            <div class="col-lg-1 text-center mt-2">
+                                <label for="inputPassword6"> <strong>Au</strong> </label>
+                            </div>
+                            <div class="col-lg-4">
+                                <input type="date" style="height: 100%;" class="form-control mx-sm-3" name="endDate" ngModel>
+                            </div>
+                            <div class="col">
+                                <button type="submit" class="btn btn-lg btn-primary" data-bs-target="#primary">
+                                    <i class="bi bi-search"></i> Chercher
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="card-body  mt-3">
+                    <div class="alert alert-info  mt-3">
+                        <h4 class="alert-heading"><mat-icon>info</mat-icon> Info</h4>
+                        <p>Consulter l'état de vos caisses entre une périodes.</p>
+                    </div>
+                    <table *ngIf="caisse.content.length"  class="table table-bordered table-striped "  datatable [dtOptions]="dtOptions" >
+                        <thead>
+                            <tr>
+                                <th>Libellé</th>
+                                <th>Code approv</th>
+                                <th>Prix d'achat unitaire</th>
+                                <th>Qte vendue</th>
+                                <th>Prix de vente</th>
+                                <th>Date de la vente</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let data of caisse.content[0]">
+                                <td>{{ data.medicamment.libelle }}</td>
+                                <td>
+                                    <span class="badge bg-primary">{{ data.approvisionnement.code }}</span>
+                                </td>
+                                <td>{{ data.approvisionnement.p_achat_unit | currency : "FCFA "}}</td>
+                                <td><span class="badge bg-success">{{ data.qte_sortie }}</span></td>
+                                <td>{{ data.qte_sortie*data.approvisionnement.p_achat_unit | currency : "FCFA " }}</td>
+                                <td>{{ data.createdAt | date: 'dd/MM/yyyy' }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="row no-gutters" *ngIf="caisse.content[0].length>0">
+                        <div class="col-sm-6 col-md-8"></div>
+                        <div class="col-6 col-md-4">
+                            <h3><i>Prix Total: {{ caisse.total | currency : "FCFA " }}</i></h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
