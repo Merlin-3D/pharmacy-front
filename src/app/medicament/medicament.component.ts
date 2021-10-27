@@ -269,8 +269,6 @@ export class MedicamentComponent implements OnInit,OnDestroy {
       }
     )
     this.apiService.emitGetMedicamentSubject()
-
-
     this.apiService.getRequest("/stock/categorie")
     this.resultSubscription = this.apiService.getResultSubject.subscribe(
       (result: any[]) => {

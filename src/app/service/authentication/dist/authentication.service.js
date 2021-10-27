@@ -9,7 +9,7 @@ exports.__esModule = true;
 exports.AuthenticationService = void 0;
 var core_1 = require("@angular/core");
 var rxjs_1 = require("rxjs");
-var environment_prod_1 = require("../../../environments/environment.prod");
+var environment_1 = require("../../../environments/environment");
 var jwt_decode_1 = require("jwt-decode");
 var moment = require("moment");
 var AuthenticationService = /** @class */ (function () {
@@ -32,7 +32,7 @@ var AuthenticationService = /** @class */ (function () {
             "nom": signInUser.getName(),
             "password": signInUser.getPassword()
         };
-        this.httpClient.post(environment_prod_1.environment.apiURL + 'user/login', data)
+        this.httpClient.post(environment_1.environment.apiURL + 'user/login', data)
             .subscribe(function (res) {
             _this.setSession(res);
             _this.success = localStorage.getItem('id_token');

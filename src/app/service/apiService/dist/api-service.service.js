@@ -9,7 +9,7 @@ exports.__esModule = true;
 exports.ApiService = void 0;
 var core_1 = require("@angular/core");
 var rxjs_1 = require("rxjs");
-var environment_prod_1 = require("src/environments/environment.prod");
+var environment_1 = require("src/environments/environment");
 var ApiService = /** @class */ (function () {
     function ApiService(httpClient) {
         this.httpClient = httpClient;
@@ -72,7 +72,7 @@ var ApiService = /** @class */ (function () {
     };
     ApiService.prototype.postRequestService = function (url, body) {
         var _this = this;
-        this.httpClient.post(environment_prod_1.environment.apiURL + url, body)
+        this.httpClient.post(environment_1.environment.apiURL + url, body)
             .subscribe(function (res) {
             _this.success = res;
             _this.emitSuccesSubject();
@@ -83,7 +83,7 @@ var ApiService = /** @class */ (function () {
     };
     ApiService.prototype.putRequestService = function (url, body) {
         var _this = this;
-        this.httpClient.put(environment_prod_1.environment.apiURL + url, body)
+        this.httpClient.put(environment_1.environment.apiURL + url, body)
             .subscribe(function (res) {
             _this.success = res;
             _this.emitSuccesSubject();
@@ -94,7 +94,7 @@ var ApiService = /** @class */ (function () {
     };
     ApiService.prototype.deleteRequesteService = function (url) {
         var _this = this;
-        this.httpClient["delete"](environment_prod_1.environment.apiURL + url)
+        this.httpClient["delete"](environment_1.environment.apiURL + url)
             .subscribe(function (res) {
             _this.success = res;
             _this.emitSuccesSubject();
@@ -105,7 +105,7 @@ var ApiService = /** @class */ (function () {
     };
     ApiService.prototype.getRequest = function (url) {
         var _this = this;
-        this.httpClient.get(environment_prod_1.environment.apiURL + url)
+        this.httpClient.get(environment_1.environment.apiURL + url)
             .subscribe(function (res) {
             _this.result = res;
             _this.emitGetResultSubject();
@@ -117,7 +117,7 @@ var ApiService = /** @class */ (function () {
     };
     ApiService.prototype.getMedicamentRequest = function (url) {
         var _this = this;
-        this.httpClient.get(environment_prod_1.environment.apiURL + url)
+        this.httpClient.get(environment_1.environment.apiURL + url)
             .subscribe(function (res) {
             _this.medicament = res;
             _this.emitGetMedicamentSubject();
@@ -129,7 +129,7 @@ var ApiService = /** @class */ (function () {
     };
     ApiService.prototype.getApprovisionnemntRequest = function (url) {
         var _this = this;
-        this.httpClient.get(environment_prod_1.environment.apiURL + url)
+        this.httpClient.get(environment_1.environment.apiURL + url)
             .subscribe(function (res) {
             _this.approvisionnement = res;
             _this.emitGetApprovisionnementSubject();
@@ -140,7 +140,7 @@ var ApiService = /** @class */ (function () {
     };
     ApiService.prototype.getVenteRequest = function (url) {
         var _this = this;
-        this.httpClient.get(environment_prod_1.environment.apiURL + url)
+        this.httpClient.get(environment_1.environment.apiURL + url)
             .subscribe(function (res) {
             _this.vente = res;
             _this.emitGetVenteSubject();
@@ -151,7 +151,7 @@ var ApiService = /** @class */ (function () {
     };
     ApiService.prototype.getRuptureRequest = function (url) {
         var _this = this;
-        this.httpClient.get(environment_prod_1.environment.apiURL + url)
+        this.httpClient.get(environment_1.environment.apiURL + url)
             .subscribe(function (res) {
             _this.rupture = res;
             _this.count_rup = _this.rupture.count;
@@ -163,7 +163,7 @@ var ApiService = /** @class */ (function () {
     };
     ApiService.prototype.getPeromptionRequest = function (url) {
         var _this = this;
-        this.httpClient.get(environment_prod_1.environment.apiURL + url)
+        this.httpClient.get(environment_1.environment.apiURL + url)
             .subscribe(function (res) {
             _this.peromption = res;
             _this.count_peromp = _this.peromption.count;
@@ -175,7 +175,7 @@ var ApiService = /** @class */ (function () {
     };
     ApiService.prototype.getExpirationRequest = function (url) {
         var _this = this;
-        this.httpClient.get(environment_prod_1.environment.apiURL + url)
+        this.httpClient.get(environment_1.environment.apiURL + url)
             .subscribe(function (res) {
             _this.expiration = res;
             _this.count_exp = _this.expiration.count;
@@ -187,7 +187,7 @@ var ApiService = /** @class */ (function () {
     };
     ApiService.prototype.getOneMedicamentRequest = function (url) {
         var _this = this;
-        this.httpClient.get(environment_prod_1.environment.apiURL + url)
+        this.httpClient.get(environment_1.environment.apiURL + url)
             .subscribe(function (res) {
             _this.oneMedoc = res;
             _this.emitGetOneMedocSubject();
@@ -198,7 +198,7 @@ var ApiService = /** @class */ (function () {
     };
     ApiService.prototype.getOneApprovRequest = function (url) {
         var _this = this;
-        this.httpClient.get(environment_prod_1.environment.apiURL + url)
+        this.httpClient.get(environment_1.environment.apiURL + url)
             .subscribe(function (res) {
             _this.oneAppriv = res;
             _this.emitGetOneApprovSubject();
@@ -209,7 +209,7 @@ var ApiService = /** @class */ (function () {
     };
     ApiService.prototype.getEntrerRequest = function (url) {
         var _this = this;
-        this.httpClient.get(environment_prod_1.environment.apiURL + url)
+        this.httpClient.get(environment_1.environment.apiURL + url)
             .subscribe(function (res) {
             _this.entrer = res;
             _this.emitGetEntrerSubject();
@@ -220,7 +220,7 @@ var ApiService = /** @class */ (function () {
     };
     ApiService.prototype.getDashboardRequest = function (url) {
         var _this = this;
-        this.httpClient.get(environment_prod_1.environment.apiURL + url)
+        this.httpClient.get(environment_1.environment.apiURL + url)
             .subscribe(function (res) {
             _this.dasboard = res;
             _this.emitGetDashboardSubject();
@@ -231,7 +231,7 @@ var ApiService = /** @class */ (function () {
     };
     ApiService.prototype.getCaisseRequest = function (url) {
         var _this = this;
-        this.httpClient.get(environment_prod_1.environment.apiURL + url)
+        this.httpClient.get(environment_1.environment.apiURL + url)
             .subscribe(function (res) {
             _this.caisse = res;
             _this.emitGetCaisseSubject();

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { User } from '../../models/User';
-import { environment } from '../../../environments/environment.prod';
+import { environment } from '../../../environments/environment';
 import jwt_decode from "jwt-decode";
 import * as moment from 'moment';
 
